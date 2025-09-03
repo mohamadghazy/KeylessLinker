@@ -59,10 +59,16 @@ if left_file and right_file:
     s1, s2, s3 = st.columns([1, 1, 2])
     with s1:
         ngram_min = st.number_input("n-gram min", min_value=2, max_value=6, value=3, step=1)
+        help="Minimum length of character n-grams used by TF-IDF (lower = more tolerant, but noisier)."
+
     with s2:
         ngram_max = st.number_input("n-gram max", min_value=2, max_value=8, value=5, step=1)
+        help="Maximum length of character n-grams (higher = more specific, but more brittle to typos)."
+
     with s3:
         min_cosine = st.slider("Minimum cosine threshold", 0.0, 1.0, 0.0, 0.01)
+        help="Keep only matches with cosine similarity ≥ this value (0–1). Higher = stricter."
+
 
     if ngram_max < ngram_min:
         st.warning("n-gram max must be ≥ n-gram min.")
