@@ -1,15 +1,17 @@
-# Record Linker (Cosine + Char n-gram)
+# Char-Ngram Record Linker 🔗
 
-Web app to match records between two CSV files using TF-IDF (char 3–5 n-grams) + cosine similarity.
+A lightweight web app to match records between **two CSV files** using **character n-gram TF-IDF** and **cosine similarity**.
 
-## Features
-- Upload two CSVs ("Left" and "Right")
-- Choose which columns represent codes
-- Select multiple columns to merge for each side into a comparable text field
-- Tune n-gram range and cosine threshold
-- Preview and download matched pairs (LeftCode, RightCode, LeftText, RightText, score)
+- Upload a *Left* CSV and a *Right* CSV
+- Pick the **code/identifier** column for each side
+- Select **one or more text columns** on each side — they’ll be **merged** into one field for matching
+- Configure n-gram range and a minimum cosine threshold
+- Download the full matches and also a **Paired Codes** CSV
 
 ## Run locally
+
 ```bash
+python -m venv .venv
+source .venv/bin/activate    # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app.py
